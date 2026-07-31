@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: escena-peru-backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/musicaperuana_db
+    username: postgres
+    password: admin123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: public
+
+logging:
+  level:
+    com.escenaperu: debug
+
+debug: true
