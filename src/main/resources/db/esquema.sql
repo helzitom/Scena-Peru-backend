@@ -214,6 +214,17 @@ CREATE TABLE notificaciones (
 
 CREATE INDEX idx_notif_usuario_no_leidas ON notificaciones(usuario_id, leido);
 
+CREATE TABLE refresh_tokens (
+                                id          UUID PRIMARY KEY,
+                                usuario_id  UUID NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
+                                token_hash  VARCHAR(64) NOT NULL UNIQUE,
+                                expira_en   TIMESTAMPTZ NOT NULL,
+                                revocado    BOOLEAN NOT NULL DEFAULT FALSE,
+                                created_at  TIMESTAMPTZ DEFAULT now()
+);
+
+CREATE INDEX idx_refresh_tokens_usuario ON refresh_tokens(usuario_id);
+
 -- =========================================================
 -- NOTAS DE DISEÑO
 -- =========================================================

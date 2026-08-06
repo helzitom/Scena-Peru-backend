@@ -4,7 +4,7 @@ import com.escenaperu.usuarios.domain.TipoUsuario;
 
 public record RegistrarUsuarioCommand(
         String email,
-        String passwordHash,
+        String password,
         TipoUsuario tipo,
         Integer ciudadId,
         String nombreDisplay
