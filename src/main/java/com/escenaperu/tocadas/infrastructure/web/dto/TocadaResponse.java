@@ -8,10 +8,10 @@ import java.util.UUID;
 
 public record TocadaResponse(
         UUID id, String titulo, Integer ciudadId, LocalDate fecha,
-        LocalTime horaInicio, EstadoTocada estado
+        LocalTime horaInicio, EstadoTocada estado, String imagenFlyerUrl
 ) {
     public static TocadaResponse desde(Tocada t) {
         return new TocadaResponse(t.getId(), t.getTitulo(), t.getCiudadId(), t.getFecha(),
-                t.getHoraInicio(), t.getEstado());
+                t.getHoraInicio(), t.getEstado(), t.getImagenFlyerUrl());
     }
 }
