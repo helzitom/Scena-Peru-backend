@@ -53,6 +53,7 @@ public class SecurityConfig {
                         .requestMatchers("/ws/**").permitAll() // ver README: falta autenticar el handshake WS
                         .requestMatchers(HttpMethod.POST, "/api/tocadas").hasAnyAuthority("ROLE_BANDA", "ROLE_ORGANIZADOR")
                         .requestMatchers(HttpMethod.POST, "/api/tocadas/*/lineup").hasAuthority("ROLE_ORGANIZADOR")
+                        .requestMatchers(HttpMethod.GET, "/api/ciudades").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(rateLimitingFilter, UsernamePasswordAuthenticationFilter.class)
